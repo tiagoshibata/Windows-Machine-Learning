@@ -1,0 +1,21 @@
+image: Visual Studio 2017 Preview
+platform:
+  - x64
+  - x86
+  - Any CPU
+configuration:
+  - Debug
+  - Release
+environment:
+  matrix:
+    - solution: Samples/MNIST/Tutorial/cs/MNIST_Demo.sln
+    - solution: Samples/MNIST/UWP/cs/MNIST_Demo.sln
+    - solution: Samples/MNIST/UWP/cppcx/mnist_cppcx.sln
+    - solution: Samples/FNSCandyStyleTransfer/UWP/cs/SnapCandy.sln
+    - solution: Samples/SqueezeNetObjectDetection/UWP/cs/SqueezeNetObjectDetection.sln
+    - solution: Samples/SqueezeNetObjectDetection/Desktop/cpp/SqueezeNetObjectDetection.sln
+max_jobs: 10
+
+build:
+  parallel: true
+  project: $(solution)
